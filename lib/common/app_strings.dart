@@ -6,3 +6,10 @@
 library;
 
 const String appName = 'Hello World Colors';
+
+// -----------------------------------------------------------------------------------------------
+// Home Screen
+// -----------------------------------------------------------------------------------------------
+
+const String homeScreenTitle = 'Hello, World!';
+const String homeFabTooltip = 'Next random color';

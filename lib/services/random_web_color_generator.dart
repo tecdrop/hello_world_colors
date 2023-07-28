@@ -15,7 +15,7 @@ import 'dart:ui';
 /// Uses the new Dart Record syntax.
 typedef WebColor = ({String name, Color color});
 
-extension on Random {
+extension RandomWebColor on Random {
   /// An extension method on [Random] that generates a random web color.
   WebColor nextWebColor() {
     final int randomIndex = nextInt(_webColors.length);
