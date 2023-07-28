@@ -14,13 +14,20 @@ import '../widgets/hello_world_color.dart';
 import '../widgets/home_app_bar.dart';
 import 'color_preview_screen.dart';
 
+/// The Home screen of the app.
+///
+/// This screen displays a Hello World greeting in a random web color background. The user can
+/// shuffle the color being displayed, and can also copy the color code to the clipboard, or
+/// navigate to the Color Preview screen.
 class HomeScreen extends StatefulWidget {
+  /// Creates a new Home screen.
   const HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+/// The state of the Home screen.
 class _HomeScreenState extends State<HomeScreen> {
   /// The random number generator used to generate the web colors.
   static final Random _random = Random();
@@ -57,16 +64,16 @@ class _HomeScreenState extends State<HomeScreen> {
         );
         break;
 
-      // Copy the color to the clipboard
+      // Copy the color code to the clipboard
       case HomeAppBarActions.copy:
         (() async {
           ScaffoldMessengerState messengerState = ScaffoldMessenger.of(context);
-          String value = _randomWebColor.color.toHexString();
+          String colorCode = _randomWebColor.color.toHexString();
           try {
-            await Clipboard.setData(ClipboardData(text: value));
-            utils.showSnackBar(messengerState, strings.copiedSnack(value));
+            await Clipboard.setData(ClipboardData(text: colorCode));
+            utils.showSnackBar(messengerState, strings.copiedSnack(colorCode));
           } catch (error) {
-            utils.showSnackBar(messengerState, strings.copiedErrorSnack(value));
+            utils.showSnackBar(messengerState, strings.copiedErrorSnack(colorCode));
           }
         }());
         break;
@@ -77,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
         break;
 
       // Open the app home page in the default browser
-      case HomeAppBarActions.what:
+      case HomeAppBarActions.appHome:
         utils.launchUrlExternal(context, consts.appHomeUrl);
         break;
     }
@@ -94,6 +101,7 @@ class _HomeScreenState extends State<HomeScreen> {
       // The body of the screen is the Hello World Color widget
       body: HelloWorldColor(
         webColor: _randomWebColor,
+        greeting: strings.helloGreeting,
       ),
 
       // The floating action button is used to shuffle the color being displayed

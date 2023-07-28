@@ -15,7 +15,7 @@ class HelloWorldColor extends StatelessWidget {
   const HelloWorldColor({
     Key? key,
     required this.webColor,
-    this.greeting = 'Hello',
+    required this.greeting,
   }) : super(key: key);
 
   /// The web color being displayed.
@@ -28,13 +28,16 @@ class HelloWorldColor extends StatelessWidget {
   Widget build(BuildContext context) {
     final Color contrastColor = webColor.color.contrastColor();
 
+    // Use an AnimatedContainer to animate the color change
     return AnimatedContainer(
       duration: const Duration(seconds: 1),
       color: webColor.color,
       width: double.infinity,
       height: double.infinity,
       alignment: Alignment.center,
-      padding: const EdgeInsets.all(32.0),
+      padding: const EdgeInsets.all(16.0),
+
+      // Use a RichText to display the greeting and the color name
       child: RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
@@ -43,9 +46,7 @@ class HelloWorldColor extends StatelessWidget {
           children: <TextSpan>[
             TextSpan(
               text: webColor.name,
-              style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                    color: contrastColor,
-                  ),
+              style: Theme.of(context).textTheme.headlineMedium!.copyWith(color: contrastColor),
             ),
           ],
         ),

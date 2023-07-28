@@ -11,6 +11,7 @@ import '../utils/utils.dart' as utils;
 /// This screen is filled with the specified color, and only displays the default back action in the
 /// app bar.
 class ColorPreviewScreen extends StatelessWidget {
+  /// Creates a new color preview screen.
   const ColorPreviewScreen({
     Key? key,
     required this.color,

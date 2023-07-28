@@ -14,12 +14,12 @@ void main() {
 
 /// The root widget of the app, a [MaterialApp] that defines the app themes and the home screen.
 class HelloWorldColorsApp extends StatelessWidget {
+  /// Creates a new Hello World Colors app.
   const HelloWorldColorsApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: strings.appName,
 
       // The light theme of the app (default)
