@@ -10,7 +10,9 @@ library;
 import 'dart:math';
 import 'dart:ui';
 
-/// A web color, with its name and color value.
+/// The web color type, that contains the color name and the [Color] value.
+///
+/// Uses the new Dart Record syntax.
 typedef WebColor = ({String name, Color color});
 
 extension on Random {
