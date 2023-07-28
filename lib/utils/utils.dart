@@ -3,16 +3,22 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
-/// Returns the black or white contrast color of the given [Color].
-Color contrastColor(Color color) {
-  switch (ThemeData.estimateBrightnessForColor(color)) {
-    case Brightness.light:
-      return Colors.black;
-    case Brightness.dark:
-      return Colors.white;
+extension ColorExtension on Color {
+  /// Returns the black or white contrast color of this [Color].
+  Color contrastColor() {
+    switch (ThemeData.estimateBrightnessForColor(this)) {
+      case Brightness.light:
+        return Colors.black;
+      case Brightness.dark:
+        return Colors.white;
+    }
   }
+
+  /// Returns a [String] representation of the color in hexadecimal format.
+  String toHexString() => '#${(value & 0xFFFFFF).toRadixString(16).padLeft(6, '0').toUpperCase()}';
 }
 
 /// Shows a [SnackBar] with the specified [text].
@@ -23,7 +29,7 @@ void showSnackBar(ScaffoldMessengerState messengerState, String text) {
     ..showSnackBar(snackBar);
 }
 
-/// Launches the specified [URL] in the mobile platform, using the default external application.
+/// Launches the specified [URL] using the default external application.
 ///
 /// Shows an error [SnackBar] if there is no support for launching the URL.
 Future<void> launchUrlExternal(BuildContext context, String url) async {

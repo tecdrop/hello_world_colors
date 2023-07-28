@@ -4,6 +4,7 @@
 
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../common/app_consts.dart' as consts;
 import '../common/app_strings.dart' as strings;
@@ -11,6 +12,7 @@ import '../services/random_web_color_generator.dart';
 import '../utils/utils.dart' as utils;
 import '../widgets/hello_world_color.dart';
 import '../widgets/home_app_bar.dart';
+import 'color_preview_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -47,25 +49,34 @@ class _HomeScreenState extends State<HomeScreen> {
     switch (action) {
       // Navigate to the Color Preview screen
       case HomeAppBarActions.colorPreview:
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) => ColorPreviewScreen(color: _randomWebColor.color),
-        //   ),
-        // );
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ColorPreviewScreen(color: _randomWebColor.color),
+          ),
+        );
         break;
 
-      // Share the color.
+      // Copy the color to the clipboard
       case HomeAppBarActions.copy:
-        // TODO: Implement this
+        (() async {
+          ScaffoldMessengerState messengerState = ScaffoldMessenger.of(context);
+          String value = _randomWebColor.color.toHexString();
+          try {
+            await Clipboard.setData(ClipboardData(text: value));
+            utils.showSnackBar(messengerState, strings.copiedSnack(value));
+          } catch (error) {
+            utils.showSnackBar(messengerState, strings.copiedErrorSnack(value));
+          }
+        }());
         break;
 
-      // Open the Google Play app page to allow the user to rate the app.
+      // Open the Google Play app page to allow the user to rate the app
       case HomeAppBarActions.rate:
         utils.launchUrlExternal(context, consts.rateAppUrl);
         break;
 
-      // Open the app home page in the default browser.
+      // Open the app home page in the default browser
       case HomeAppBarActions.what:
         utils.launchUrlExternal(context, consts.appHomeUrl);
         break;

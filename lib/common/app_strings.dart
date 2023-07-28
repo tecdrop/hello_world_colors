@@ -13,7 +13,11 @@ const String appName = 'Hello World Colors';
 
 const String homeScreenTitle = 'Hello World Colors';
 const String homeFabTooltip = 'Next random color';
+
 const String colorPreviewActionTooltip = 'Color preview';
 const String copyAction = 'Copy color code';
 const String rateAction = 'Rate app';
 const String appHomeAction = 'App homepage';
+
+String copiedSnack(String value) => '$value copied to clipboard';
+String copiedErrorSnack(String value) => 'Copy to clipboard failed: $value';

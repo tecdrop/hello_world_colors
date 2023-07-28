@@ -26,7 +26,7 @@ class HelloWorldColor extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Color contrastColor = utils.contrastColor(webColor.color);
+    final Color contrastColor = webColor.color.contrastColor();
 
     return AnimatedContainer(
       duration: const Duration(seconds: 1),
