@@ -1,6 +1,7 @@
 {
     "dart.lineLength": 100,
     "cSpell.words": [
+        "consts",
         "Tecdrop"
     ]
 }

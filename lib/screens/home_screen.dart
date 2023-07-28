@@ -5,9 +5,12 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
+import '../common/app_consts.dart' as consts;
 import '../common/app_strings.dart' as strings;
 import '../services/random_web_color_generator.dart';
+import '../utils/utils.dart' as utils;
 import '../widgets/hello_world_color.dart';
+import '../widgets/home_app_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -39,12 +42,43 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  /// Perform the actions of the app bar.
+  void _onAppBarAction(HomeAppBarActions action) {
+    switch (action) {
+      // Navigate to the Color Preview screen
+      case HomeAppBarActions.colorPreview:
+        // Navigator.push(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) => ColorPreviewScreen(color: _randomWebColor.color),
+        //   ),
+        // );
+        break;
+
+      // Share the color.
+      case HomeAppBarActions.copy:
+        // TODO: Implement this
+        break;
+
+      // Open the Google Play app page to allow the user to rate the app.
+      case HomeAppBarActions.rate:
+        utils.launchUrlExternal(context, consts.rateAppUrl);
+        break;
+
+      // Open the app home page in the default browser.
+      case HomeAppBarActions.what:
+        utils.launchUrlExternal(context, consts.appHomeUrl);
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: HomeAppBar(
-      //   onAction: _onAppBarAction,
-      // ),
+      // The app bar with the title and main actions
+      appBar: HomeAppBar(
+        onAction: _onAppBarAction,
+      ),
 
       // The body of the screen is the Hello World Color widget
       body: HelloWorldColor(

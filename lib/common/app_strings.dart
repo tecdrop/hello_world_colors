@@ -7,9 +7,13 @@ library;
 
 const String appName = 'Hello World Colors';
 
-// -----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // Home Screen
-// -----------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 
-const String homeScreenTitle = 'Hello, World!';
+const String homeScreenTitle = 'Hello World Colors';
 const String homeFabTooltip = 'Next random color';
+const String colorPreviewActionTooltip = 'Color preview';
+const String copyAction = 'Copy color code';
+const String rateAction = 'Rate app';
+const String appHomeAction = 'App homepage';
