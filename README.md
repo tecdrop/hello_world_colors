@@ -11,6 +11,10 @@ Hello World Colors is a Flutter-based application that puts a modern, colorful s
 
 Each time the user taps the Shuffle button, Hello World Colors displays a random color from a wide range of web colors, complete with its name, like Slate Blue, Crimson, or Peach Puff. This feature not only introduces users to a spectrum of colors but also demonstrates the ease and flexibility of building user interfaces with Flutter. Additionally, the app includes a full-screen color preview and a handy option to copy the color's hexadecimal code directly to the clipboard.
 
+## Running the App
+
+There's no need for downloads or installations. To use Hello World Colors, simply visit https://helloworldcolors.tecdrop.com/ on any device with a web browser. It's compatible with all platforms, including Android, ChromeOS, iOS, Linux, macOS, and Windows.
+
 ## Getting Started
 
 1. If you don't have the Flutter SDK installed, please visit the official [Flutter](https://docs.flutter.dev/get-started/install) website.
