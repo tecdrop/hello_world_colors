@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import '../common/app_strings.dart' as strings;
 
 /// The actions available in the app bar.
-enum HomeAppBarActions { colorPreview, copy, rate, appHome }
+enum HomeAppBarActions { colorPreview, copy, about }
 
 /// The app bar of the Home Screen.
 class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -26,7 +26,7 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: <Widget>[
         // The color preview action
         IconButton(
-          icon: const Icon(Icons.preview_outlined),
+          icon: const Icon(Icons.visibility_rounded),
           tooltip: strings.colorPreviewActionTooltip,
           onPressed: () => onAction(HomeAppBarActions.colorPreview),
         ),
@@ -38,15 +38,10 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
               value: HomeAppBarActions.copy,
               child: Text(strings.copyAction),
             ),
-            // The rate app action
-            const PopupMenuItem<HomeAppBarActions>(
-              value: HomeAppBarActions.rate,
-              child: Text(strings.rateAction),
-            ),
             // The app homepage action
             const PopupMenuItem<HomeAppBarActions>(
-              value: HomeAppBarActions.appHome,
-              child: Text(strings.appHomeAction),
+              value: HomeAppBarActions.about,
+              child: Text(strings.aboutAction),
             ),
           ],
         ),

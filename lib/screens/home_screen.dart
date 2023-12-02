@@ -78,14 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
         }());
         break;
 
-      // Open the Google Play app page to allow the user to rate the app
-      case HomeAppBarActions.rate:
-        utils.launchUrlExternal(context, consts.rateAppUrl);
-        break;
-
       // Open the app home page in the default browser
-      case HomeAppBarActions.appHome:
-        utils.launchUrlExternal(context, consts.appHomeUrl);
+      case HomeAppBarActions.about:
+        utils.launchUrlExternal(context, consts.aboutUrl);
         break;
     }
   }
@@ -108,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: FloatingActionButton.large(
         tooltip: strings.homeFabTooltip,
         onPressed: () => _shuffleColor(),
-        child: const Icon(Icons.shuffle),
+        child: const Icon(Icons.shuffle_rounded),
       ),
     );
   }

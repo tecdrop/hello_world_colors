@@ -9,7 +9,4 @@ library;
 // Urls
 // -----------------------------------------------------------------------------
 
-const String rateAppUrl =
-    'https://play.google.com/store/apps/details?id=com.tecdrop.hello_world_colors';
-
-const String appHomeUrl = 'https://www.tecdrop.com/helloworldcolors/';
+const String aboutUrl = 'https://www.tecdrop.com/helloworldcolors/';

@@ -20,6 +20,7 @@ class HelloWorldColorsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: strings.appName,
 
       // The light theme of the app (default)

@@ -14,8 +14,7 @@ const String appName = 'Hello World Colors';
 const String homeScreenTitle = 'Hello World Colors';
 const String colorPreviewActionTooltip = 'Color preview';
 const String copyAction = 'Copy color code';
-const String rateAction = 'Rate app';
-const String appHomeAction = 'App homepage';
+const String aboutAction = 'About this Hello World app';
 
 const String helloGreeting = 'Hello';
 const String homeFabTooltip = 'Next random color';
